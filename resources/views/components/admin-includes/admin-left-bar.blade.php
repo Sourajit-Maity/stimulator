@@ -42,10 +42,12 @@
 							<ul class="kt-menu__nav ">
 								<li class="kt-menu__item  {{ Request::is('admin/dashboard*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('admin.dashboard')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
 								<li class="kt-menu__item  {{ Request::is('admin/users*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('users.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-users"></i><span class="kt-menu__link-text">Users</span></a></li>
-								{{-- <li class="kt-menu__section ">
+								 <li class="kt-menu__section ">
 									<h4 class="kt-menu__section-text">Master</h4>
 									<i class="kt-menu__section-icon flaticon-more-v2"></i>
-								</li> --}}
+								</li> 
+								<li class="kt-menu__item  {{ Request::is('admin/overall-sale*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('overall-sale.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-users"></i><span class="kt-menu__link-text">Overall Sale</span></a></li>
+
 							</ul>
 						</div>
 					</div>

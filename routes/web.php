@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboard;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OverallsaleController;
 use Illuminate\Support\Facades\Route;
  
 
@@ -23,7 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
     Route::get('profile',[ProfileController::class,'getProfile'])->name('admin.profile');
     Route::get('/dashboard',[AdminDashboard::class,'getDashboard'])->name('admin.dashboard');
     Route::resources([
-        'users' => UserController::class
+        'users' => UserController::class,
+        'overall-sale' => OverallsaleController::class,
     ]);
 });
 
