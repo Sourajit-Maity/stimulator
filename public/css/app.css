@@ -48512,6 +48512,7 @@ select {
 
   .sm\:pt-0 {
     padding-top: 0px;
+    background-color: lightblue;
   }
 
   .sm\:pr-0 {
