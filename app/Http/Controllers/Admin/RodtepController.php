@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\OverallSales;
-class OverallsaleController extends Controller
+use App\Models\Rodtep;
+
+class RodtepController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class OverallsaleController extends Controller
      */
     public function index()
     {
-        return view('admin.overall-sale.list');
+        return view('admin.rodtep.list');
     }
 
     /**
@@ -24,7 +25,7 @@ class OverallsaleController extends Controller
      */
     public function create()
     {
-        return view('admin.overall-sale.create-edit',['overallsale'=>null]);
+        return view('admin.rodtep.create-edit',['rodtep'=>null]);
     }
 
     /**
@@ -58,8 +59,8 @@ class OverallsaleController extends Controller
     
     public function edit($id)
     {
-        $overallsale = OverallSales::findOrFail($id);
-        return view('admin.overall-sale.create-edit',compact('overallsale'));
+        $rodtep = Rodtep::findOrFail($id);
+        return view('admin.rodtep.create-edit',compact('rodtep'));
     }
 
     /**

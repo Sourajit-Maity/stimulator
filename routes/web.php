@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\AdminDashboard;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OverallsaleController;
+use App\Http\Controllers\Admin\AirController;
+use App\Http\Controllers\Admin\RodtepController;
+use App\Http\Controllers\Admin\WasteScrapController;
 use Illuminate\Support\Facades\Route;
  
 
@@ -30,6 +33,9 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
     Route::resources([
        // 'users' => UserController::class,
         'overall-sale' => OverallsaleController::class,
+        'air' => AirController::class,
+        'waste-scrap' => WasteScrapController::class,
+        'rodtep' => RodtepController::class,
     ]);
 });
 

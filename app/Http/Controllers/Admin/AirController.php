@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\OverallSales;
-class OverallsaleController extends Controller
+use App\Models\Air;
+
+class AirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class OverallsaleController extends Controller
      */
     public function index()
     {
-        return view('admin.overall-sale.list');
+        return view('admin.air.list');
     }
 
     /**
@@ -24,7 +25,7 @@ class OverallsaleController extends Controller
      */
     public function create()
     {
-        return view('admin.overall-sale.create-edit',['overallsale'=>null]);
+        return view('admin.air.create-edit',['air'=>null]);
     }
 
     /**
@@ -55,12 +56,11 @@ class OverallsaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
-    public function edit($id)
+    public function edit(Air $air)
     {
-        $overallsale = OverallSales::findOrFail($id);
-        return view('admin.overall-sale.create-edit',compact('overallsale'));
+        return view('admin.air.create-edit',compact('air'));
     }
+
 
     /**
      * Update the specified resource in storage.
