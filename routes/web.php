@@ -19,12 +19,16 @@ use Illuminate\Support\Facades\Route;
 */
 // Route::redirect('/','admin');
 Route::redirect('/','admin/login');
+Route::view('/register/create', 'auth.register')->name('admin.register');
+Route::resources([
+    'users' => UserController::class,
+]);
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
     Route::get('profile',[ProfileController::class,'getProfile'])->name('admin.profile');
     Route::get('/dashboard',[AdminDashboard::class,'getDashboard'])->name('admin.dashboard');
     Route::resources([
-        'users' => UserController::class,
+       // 'users' => UserController::class,
         'overall-sale' => OverallsaleController::class,
     ]);
 });

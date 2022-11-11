@@ -57,6 +57,7 @@ class OverallsaleCreateEdit extends Component
                 'taxability_under_gst' => ['required'],
                 'air' => ['nullable'],
                 'waste_scrap' => ['nullable'],
+                'brand_rate' => ['nullable'],
                 'rodtep' => ['nullable'],
                 'air_receivable' => ['nullable'],
                 'air_turnaround' => ['nullable'],
@@ -89,11 +90,17 @@ class OverallsaleCreateEdit extends Component
                 'rodtep_amount' => ['nullable'],
                 'waste_scrap_amount' => ['nullable'],
                 'sale_value_of_scrap' => ['nullable'],
+                'brand_rate' => ['nullable'],
             ];
     }
 
     public function saveOrUpdate()
     {
+        $this->air_amount = $this->export_value * $this->air;
+        $this->rodtep_amount = $this->deemed_export * $this->rodtep;
+        $this->waste_scrap_amount = $this->export_value * $this->waste_scrap;
+        $this->sale_value_of_scrap = $this->rodtep_amount;
+
         $this->overallsale->fill($this->validate($this->isEdit ? $this->validationRuleForUpdate() : $this->validationRuleForSave()))->save();
         
 
