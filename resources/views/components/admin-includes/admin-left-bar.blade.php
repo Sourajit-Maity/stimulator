@@ -49,12 +49,12 @@
 									<i class="kt-menu__section-icon flaticon-more-v2"></i>
 								</li> 
 								@if(auth()->user()->id == 1)
-									<li class="kt-menu__item  {{ Request::is('admin/air*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('air.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-users"></i><span class="kt-menu__link-text">Air</span></a></li>
-									<li class="kt-menu__item  {{ Request::is('admin/waste-scrap*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('waste-scrap.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-users"></i><span class="kt-menu__link-text">Waste Scrap</span></a></li>
-									<li class="kt-menu__item  {{ Request::is('admin/rodtep*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('rodtep.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-users"></i><span class="kt-menu__link-text">Rodtep</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/air*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('air.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-spinner"></i><span class="kt-menu__link-text">Air</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/waste-scrap*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('waste-scrap.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"></i><span class="kt-menu__link-text">Waste Scrap</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/rodtep*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('rodtep.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-avatar"></i><span class="kt-menu__link-text">Rodtep</span></a></li>
 								@endif
 
-								<li class="kt-menu__item  {{ Request::is('admin/overall-sale*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('overall-sale.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-users"></i><span class="kt-menu__link-text">Overall Sale</span></a></li>
+								<li class="kt-menu__item  {{ Request::is('admin/overall-sale*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('overall-sale.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Overall Sale</span></a></li>
 
 							</ul>
 						</div>
