@@ -55,6 +55,8 @@
 								@endif
 
 								<li class="kt-menu__item  {{ Request::is('admin/overall-sale*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('overall-sale.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Overall Sale</span></a></li>
+								<li class="kt-menu__item  {{ Request::is('admin/domestic*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('domestic.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Domestic Tax</span></a></li>
+								<li class="kt-menu__item  {{ Request::is('admin/imported*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('imported.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Import Duty</span></a></li>
 
 							</ul>
 						</div>

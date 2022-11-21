@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\OverallsaleController;
 use App\Http\Controllers\Admin\AirController;
 use App\Http\Controllers\Admin\RodtepController;
 use App\Http\Controllers\Admin\WasteScrapController;
+use App\Http\Controllers\Admin\DomesticController;
+use App\Http\Controllers\Admin\ImportedController;
 use Illuminate\Support\Facades\Route;
  
 
@@ -36,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
         'air' => AirController::class,
         'waste-scrap' => WasteScrapController::class,
         'rodtep' => RodtepController::class,
+        'domestic' => DomesticController::class,
+        'imported' => ImportedController::class,
     ]);
 });
 

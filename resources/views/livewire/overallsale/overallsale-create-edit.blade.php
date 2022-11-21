@@ -109,6 +109,6 @@
     </x-slot>
     <x-slot name="actions">
         <x-admin.button type="submit" color="success" wire:loading.attr="disabled">Save</x-admin.button>
-        <x-admin.link :href="route('users.index')" color="secondary">Cancel</x-admin.link>
+        <x-admin.link :href="route('overall-sale.index')" color="secondary">Cancel</x-admin.link>
     </x-slot>
 </x-form-section>
