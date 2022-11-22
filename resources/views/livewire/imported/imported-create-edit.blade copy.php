@@ -29,15 +29,8 @@
                         <x-admin.input-error for="value" />
                     </x-admin.form-group>
                     <x-admin.form-group>
-                        <x-admin.lable value="BCD" required/>
-                        <x-admin.dropdown  wire:model.defer="bcd_rate" placeHolderText="Please select BCD" autocomplete="off" class="{{ $errors->has('bcd_rate') ? 'is-invalid' :'' }}">
-                            <x-admin.dropdown-item  :value="$blankArr['value']" :text="$blankArr['text']"/> 
-                                    @if(isset($bcdList))
-                                        @foreach($bcdList as $data)
-                                        <x-admin.dropdown-item  :value="$data->id" :text="$data->bcd_percentage"/>
-                                        @endforeach
-                                    @endif
-                            </x-admin.dropdown>
+                        <x-admin.lable value="Bcd Rate" required />
+                        <x-admin.input type="text" wire:model.defer="bcd_rate" placeholder="Bcd Rate" autocomplete="off" class="{{ $errors->has('bcd_rate') ? 'is-invalid' :'' }}"/>
                         <x-admin.input-error for="bcd_rate" />
                     </x-admin.form-group>
                     <x-admin.form-group>
@@ -46,32 +39,19 @@
                         <x-admin.input-error for="bcd_amount" />
                     </x-admin.form-group>
                     <x-admin.form-group>
-                        <x-admin.lable value="SWS" required/>
-                        <x-admin.dropdown  wire:model.defer="sws_rate" placeHolderText="Please select SWS" autocomplete="off" class="{{ $errors->has('sws_rate') ? 'is-invalid' :'' }}">
-                            <x-admin.dropdown-item  :value="$blankArr['value']" :text="$blankArr['text']"/> 
-                                    @if(isset($swsList))
-                                        @foreach($swsList as $ait)
-                                        <x-admin.dropdown-item  :value="$ait->id" :text="$ait->sws_percentage"/>
-                                        @endforeach
-                                    @endif
-                            </x-admin.dropdown>
-                            <x-admin.input-error for="sws_rate" />
+                        <x-admin.lable value="Sws Rate"  required />
+                        <x-admin.input type="text" wire:model.defer="sws_rate" placeholder="Sws Rate"  class="{{ $errors->has('sws_rate') ? 'is-invalid' :'' }}" />
+                        <x-admin.input-error for="sws_rate" />
                     </x-admin.form-group>
                     <x-admin.form-group>
                         <x-admin.lable value="Sws Amount" required />
                         <x-admin.input type="text" wire:model.defer="sws_amount" placeholder="Sws Amount" autocomplete="off" class="{{ $errors->has('sws_amount') ? 'is-invalid' :'' }}"/>
                         <x-admin.input-error for="sws_amount" />
                     </x-admin.form-group>
+
                     <x-admin.form-group>
-                        <x-admin.lable value="IGST" required/>
-                            <x-admin.dropdown  wire:model.defer="igst_rate" placeHolderText="Please select Igst" autocomplete="off" class="{{ $errors->has('igst_rate') ? 'is-invalid' :'' }}">
-                                <x-admin.dropdown-item  :value="$blankArr['value']" :text="$blankArr['text']"/> 
-                                    @if(isset($igstList))
-                                        @foreach($igstList as $rodt)
-                                        <x-admin.dropdown-item  :value="$rodt->id" :text="$rodt->igst_percentage"/>
-                                        @endforeach
-                                    @endif
-                            </x-admin.dropdown>
+                        <x-admin.lable value="IGST Rate"  required />
+                        <x-admin.input type="text" wire:model.defer="igst_rate" placeholder="IGST Rate"  class="{{ $errors->has('igst_rate') ? 'is-invalid' :'' }}" />
                         <x-admin.input-error for="igst_rate" />
                     </x-admin.form-group>
                     <x-admin.form-group>
@@ -79,7 +59,8 @@
                         <x-admin.input type="text" wire:model.defer="igst_amount" placeholder="IGST Amount" autocomplete="off" class="{{ $errors->has('igst_amount') ? 'is-invalid' :'' }}"/>
                         <x-admin.input-error for="igst_amount" />
                     </x-admin.form-group>
-
+                    
+                  
                     <x-admin.form-group>
                         <x-admin.lable value="Compensation Cess" required />
                         <x-admin.input type="text" wire:model.defer="compensation_cess" placeholder="Compensation Cess" autocomplete="off" class="{{ $errors->has('compensation_cess') ? 'is-invalid' :'' }}"/>
