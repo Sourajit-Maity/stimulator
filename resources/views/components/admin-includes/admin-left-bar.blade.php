@@ -52,8 +52,17 @@
 									<li class="kt-menu__item  {{ Request::is('admin/air*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('air.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-spinner"></i><span class="kt-menu__link-text">Air</span></a></li>
 									<li class="kt-menu__item  {{ Request::is('admin/waste-scrap*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('waste-scrap.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"></i><span class="kt-menu__link-text">Waste Scrap</span></a></li>
 									<li class="kt-menu__item  {{ Request::is('admin/rodtep*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('rodtep.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-avatar"></i><span class="kt-menu__link-text">Rodtep</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/bcd*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('bcd.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-spinner"></i><span class="kt-menu__link-text">BCD</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/sws*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('sws.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"></i><span class="kt-menu__link-text">SWS</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/igst*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('igst.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-avatar"></i><span class="kt-menu__link-text">Igst</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/sgst*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('sgst.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-spinner"></i><span class="kt-menu__link-text">Sgst</span></a></li>
+									<li class="kt-menu__item  {{ Request::is('admin/cgst*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('cgst.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-list-alt"></i><span class="kt-menu__link-text">Cgst</span></a></li>
+								
 								@endif
-
+								<li class="kt-menu__section ">
+									<h4 class="kt-menu__section-text">Product Details</h4>
+									<i class="kt-menu__section-icon flaticon-more-v2"></i>
+								</li>
 								<li class="kt-menu__item  {{ Request::is('admin/overall-sale*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('overall-sale.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Overall Sale</span></a></li>
 								<li class="kt-menu__item  {{ Request::is('admin/domestic*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('domestic.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Domestic Tax</span></a></li>
 								<li class="kt-menu__item  {{ Request::is('admin/imported*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('imported.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Import Duty</span></a></li>

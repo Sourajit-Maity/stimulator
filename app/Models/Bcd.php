@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Bcd extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'bcd_percentage',
+        'bcd_actual',
+        'active',
+    ];
 }

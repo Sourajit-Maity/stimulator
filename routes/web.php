@@ -9,6 +9,11 @@ use App\Http\Controllers\Admin\RodtepController;
 use App\Http\Controllers\Admin\WasteScrapController;
 use App\Http\Controllers\Admin\DomesticController;
 use App\Http\Controllers\Admin\ImportedController;
+use App\Http\Controllers\Admin\SwsController;
+use App\Http\Controllers\Admin\BcdController;
+use App\Http\Controllers\Admin\CgstController;
+use App\Http\Controllers\Admin\IgstController;
+use App\Http\Controllers\Admin\SgstController;
 use Illuminate\Support\Facades\Route;
  
 
@@ -40,6 +45,11 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
         'rodtep' => RodtepController::class,
         'domestic' => DomesticController::class,
         'imported' => ImportedController::class,
+        'sws' => SwsController::class,
+        'bcd' => BcdController::class,
+        'igst' => IgstController::class,
+        'sgst' => SgstController::class,
+        'cgst' => CgstController::class,
     ]);
 });
 

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cgst extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'cgst_percentage',
+        'cgst_actual',
+        'active',
+    ];
 }
