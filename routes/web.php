@@ -33,6 +33,8 @@ Route::view('/register/create', 'auth.register')->name('admin.register');
 Route::resources([
     'users' => UserController::class,
 ]);
+Route::post('/overall-sale-store', [OverallsaleController::class, 'store'])->name('overall-sale-store');
+
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
     Route::get('profile',[ProfileController::class,'getProfile'])->name('admin.profile');

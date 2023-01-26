@@ -5,6 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\OverallSales;
+use App\Models\Rodtep;
+use App\Models\Air;
+use App\Models\WasteScrap;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Response,Config;
+use Carbon\Carbon;
+use DateTime;
+use Illuminate\Support\Facades\Auth;
 class OverallsaleController extends Controller
 {
     /**
@@ -24,7 +38,12 @@ class OverallsaleController extends Controller
      */
     public function create()
     {
-        return view('admin.overall-sale.create-edit',['overallsale'=>null]);
+        $rodtepList = Rodtep::get();
+        $wasteList = WasteScrap::get();
+        $aitList = Air::get();
+        $overallsale = null;
+        #return view('admin.overall-sale.create-edit',['overallsale'=>null]);
+        return view('admin.overall-sale.create-edit',compact('rodtepList','aitList','wasteList','overallsale'));
     }
 
     /**
@@ -35,7 +54,35 @@ class OverallsaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+ 
+            'moreFields.*.product_name'  => 'required',
+            'moreFields.*.description'  => 'required',
+            'moreFields.*.hsn'  => 'required',
+            'moreFields.*.export_value'  => 'required',
+            'moreFields.*.sez_unit'  => 'required',
+            'moreFields.*.dta'  => 'required',
+            'moreFields.*.deemed_export'  => 'required',
+            'moreFields.*.id'  => 'required',
+            'moreFields.*.air_turnaround'  => 'required',
+            'moreFields.*.brand_rate'  => 'required',
+            'moreFields.*.taxability_under_gst'  => 'required',
+            'moreFields.*.waste_scrap'  => 'required',
+            'moreFields.*.air'  => 'required',
+            'moreFields.*.rodtep'  => 'required',
+            'moreFields.*.air_receivable'  => 'required',
+        ]);
+      
+
+        
+        foreach ($request->moreFields as $key => $value) {
+            OverallSales::create($value);
+      }
+
+
+    #return Redirect::back()->with('success','You have successfully submitted.');
+    return redirect()->route('overall-sale.index')->with('success','You have successfully submitted.');
     }
 
     /**
