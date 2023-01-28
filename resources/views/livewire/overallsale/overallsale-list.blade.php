@@ -78,6 +78,10 @@
                             class="la la-edit"></i> Edit</a>
                     <button href="#" class="dropdown-item" wire:click="deleteAttempt({{ $data->id }})"><i
                             class="fa fa-trash"></i> Delete</button>
+                    <a class="dropdown-item" href="{{ route('imported-create',[$data->id]) }}"><i
+                            class="la la-edit"></i> Add Duty Imported</a>
+                    <a class="dropdown-item" href="{{ route('domestic-create',[$data->id]) }}"><i
+                            class="la la-edit"></i> Add Duty Domestic</a>
                 </x-admin.td-action>
             </tr>
         @empty

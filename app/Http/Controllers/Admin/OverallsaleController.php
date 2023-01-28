@@ -120,7 +120,7 @@ class OverallsaleController extends Controller
     public function edit($id)
     {
         $overallsale = OverallSales::findOrFail($id);
-        return view('admin.overall-sale.create-edit',compact('overallsale'));
+        return view('admin.overall-sale.edit',compact('overallsale'));
     }
 
     /**

@@ -35,7 +35,8 @@ Route::resources([
 ]);
 Route::post('/overall-sale-store', [OverallsaleController::class, 'store'])->name('overall-sale-store');
 Route::post('/imported-store', [ImportedController::class, 'store'])->name('imported-store');
-Route::get('/imported-create/id', [ImportedController::class, 'store'])->name('imported-store');
+Route::get('/imported-create/{id}', [ImportedController::class, 'create'])->name('imported-create');
+Route::get('/domestic-create/{id}', [DomesticController::class, 'create'])->name('domestic-create');
 
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){

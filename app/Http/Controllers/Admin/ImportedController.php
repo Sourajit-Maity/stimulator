@@ -39,15 +39,16 @@ class ImportedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         // return view('admin.imported.create-edit',['imported'=>null]);
         $imported = null;
+        $overall_id = $id;       
         $saleList = OverallSales::get();
         $bcdList = Bcd::get();
         $swsList = Sws::get();
         $igstList = Igst::get();
-        return view('admin.imported.create-edit',compact('imported','saleList','igstList','bcdList','swsList'));
+        return view('admin.imported.create-edit',compact('overall_id','imported','saleList','igstList','bcdList','swsList'));
     }
 
     /**
@@ -75,6 +76,7 @@ class ImportedController extends Controller
             'moreFields.*.addl_duty_5'  => 'required',
             'moreFields.*.customs_duty'  => 'required',
             'moreFields.*.nccd'  => 'required',
+            'moreFields.*.overall_sale_id'  => 'required',
         ]);
       
 
@@ -82,22 +84,19 @@ class ImportedController extends Controller
         foreach ($request->moreFields as $key => $value) {
             $bcd_per = Bcd::where('id',(int)$value['bcd_rate'])->value('bcd_actual');
             $sws_per = Sws::where('id',(int)$value['sws_rate'])->value('sws_actual');
-            $igst_per = Igst::where('id',(int)$value['igst_rate'])->value('igst_actual'); 
-          
+            $igst_per = Igst::where('id',(int)$value['igst_rate'])->value('igst_actual');           
             $bcd_amount = $value['value'] * $bcd_per;
             $sws_amount = $value['value'] * $sws_per;
             $igst_amount = $value['value'] * $igst_per;
             $value['bcd_amount'] = $bcd_amount;
             $value['sws_amount'] = $sws_amount;
-            $value['igst_amount'] = $igst_amount;
-            $value['overall_sale_id'] = 3;
-            
+            $value['igst_amount'] = $igst_amount;            
             DutyImported::create($value);
       }
 
 
     #return Redirect::back()->with('success','You have successfully submitted.');
-    return redirect()->route('overall-sale.index')->with('success','You have successfully submitted.');
+    return redirect()->route('imported.index')->with('success','You have successfully submitted.');
     }
 
     /**
@@ -119,7 +118,7 @@ class ImportedController extends Controller
      */
     public function edit(DutyImported $imported)
     {
-        return view('admin.imported.create-edit',compact('imported'));
+        return view('admin.imported.edit',compact('imported'));
     }
 
     /**
