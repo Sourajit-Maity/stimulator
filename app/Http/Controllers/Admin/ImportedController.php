@@ -63,7 +63,7 @@ class ImportedController extends Controller
  
             'moreFields.*.type'  => 'required',
             'moreFields.*.subtype'  => 'required',
-            'moreFields.*.value'  => 'required',
+            'moreFields.*.value'  => 'required|numeric',
             'moreFields.*.bcd_rate'  => 'required',
             'moreFields.*.sws_rate'  => 'required',
             'moreFields.*.igst_rate'  => 'required',

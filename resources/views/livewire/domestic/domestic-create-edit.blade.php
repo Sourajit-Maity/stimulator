@@ -2,7 +2,7 @@
     <x-slot name="form">
                     <x-admin.form-group>
                         <x-admin.lable value="Overall Sale" />
-                            <x-admin.dropdown  wire:model.defer="overall_sale_id" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('overall_sale_id') ? 'is-invalid' :'' }}">
+                            <x-admin.dropdown  wire:model.defer="overall_sale_id" readonly disabled placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('overall_sale_id') ? 'is-invalid' :'' }}">
                                  <x-admin.dropdown-item  :value="$blankArr['value']" :text="$blankArr['text']"/> 
                                 @if(isset($saleList))
                                     @foreach ($saleList as $status)
