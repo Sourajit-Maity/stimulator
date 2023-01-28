@@ -66,6 +66,10 @@ th,td{
 <th>Waste Scrap</th>
 <th>Rodtep</th>
 <th>AIR</th>
+<!-- <th>AIR Amount</th>
+<th>RoDTEP Amount</th>
+<th>Waste Scrap Amount</th>
+<th>Sale value of Scrap Amount</th> -->
 <th>Action</th>
 </tr>
 <tr>  

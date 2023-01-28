@@ -34,6 +34,8 @@ Route::resources([
     'users' => UserController::class,
 ]);
 Route::post('/overall-sale-store', [OverallsaleController::class, 'store'])->name('overall-sale-store');
+Route::post('/imported-store', [ImportedController::class, 'store'])->name('imported-store');
+Route::get('/imported-create/id', [ImportedController::class, 'store'])->name('imported-store');
 
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){

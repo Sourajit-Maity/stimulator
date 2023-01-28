@@ -77,6 +77,20 @@ class OverallsaleController extends Controller
 
         
         foreach ($request->moreFields as $key => $value) {
+            $air_per = Air::where('id',(int)$value['air'])->value('air_actual');
+            $waste_per = WasteScrap::where('id',(int)$value['waste_scrap'])->value('waste_scrap_actual');
+            $rodtep_per = Rodtep::where('id',(int)$value['rodtep'])->value('rodtep_actual'); 
+          
+            $air_amount = $value['export_value'] * $air_per;
+            $rodtep_amount = $value['deemed_export'] * $rodtep_per;
+            $waste_scrap_amount = $value['export_value'] * $waste_per;
+            $sale_value_of_scrap = $waste_scrap_amount * 0.05;
+            $value['air_amount'] = $air_amount;
+            $value['rodtep_amount'] = $rodtep_amount;
+            $value['waste_scrap_amount'] = $waste_scrap_amount;
+            $value['sale_value_of_scrap'] = $sale_value_of_scrap;
+
+            
             OverallSales::create($value);
       }
 
