@@ -107,86 +107,8 @@ class ImportedCreateEdit extends Component
     public function saveOrUpdate()
     {
        
-
-        $rules = array();
-        $messages = array();
-        $this->inputCount = count($this->inputs);
-
-        if($this->inputCount > 0){
-            foreach($this->inputs as $key=>$index){
-                $validrules = [
-                    'type.'.$index => 'required',
-                    'design_description.'.$index => 'required',
-                  
+       $this->imported->fill($this->validate($this->isEdit ? $this->validationRuleForUpdate() : $this->validationRuleForSave()))->save();
         
-                ];
-                $validmessage = [
-                    'type.'.$index.'.required' => 'Design name field is required',
-                    'design_description.'.$index.'.required' => 'Description field is required',
-                   
-        
-                ];
-                $rules = array_merge($rules,$validrules);
-                $messages = array_merge($messages,$validmessage);
-            }
-
-            $normalrules = [
-                'type.0' => 'required',
-                'design_description.0' => 'required',
-               
-    
-            ];
-            $normalmessage = [
-                'type.0.required' => 'Design name field is required',
-                'design_description.0.required' => 'Description field is required',
-                
-    
-            ];
-            $rules = array_merge($rules, $normalrules);
-            $messages = array_merge($messages,$normalmessage);
-            $this->validate($rules,$messages);
-
-        }
-
-        else{
-            
-            $validatedDate = $this->validate([
-               
-                'design_name.0' => 'required',
-                'design_description.0' => 'required',
-                       
-            ],  
-            [
-               
-                'design_name.0.required' => 'Design name field is required',
-                'design_description.0.required' => 'Description field is required',
-               
-    
-            ]);
-        }
-   
-
-     foreach ($this->design_name as $key => $value) 
-     {
-
-        $photo = $this->photos[$key];
-        $design_photo_path = $photo->store('photo', 'public');
-
-        $insert = DutyImported::create(['design_name' => $this->design_name[$key], 
-        'design_description' => $this->design_description[$key], 
-        'design_photo_path' => $design_photo_path,
-        'design_order' => $key == 1,
-        'gallery_id' => $this->design]);
-    
-    }
-
-
-
-        // $this->imported->fill($this->validate($this->isEdit ? $this->validationRuleForUpdate() : $this->validationRuleForSave()))->save();
-        
-        $this->inputs = [];
-
-        $this->resetInputFields();
 
         $msgAction = 'Imported Duty was ' . ($this->isEdit ? 'updated' : 'added') . ' successfully';
         $this->showToastr("success", $msgAction);
@@ -199,25 +121,5 @@ class ImportedCreateEdit extends Component
         return view('livewire.imported.imported-create-edit');
     }
 
-    public function add($i)
-    {
-        $i = $i + 1;
-        $this->i = $i;
-        array_push($this->inputs ,$i);
-    }
-      
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function remove($i)
-    {
-        unset($this->inputs[$i]);
-    }
-    private function resetInputFields(){
-        $this->service_description = '';
-        $this->design_name = '';
-        $this->design_photo_path = '';
-    }
+    
 }
